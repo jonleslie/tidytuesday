@@ -1,0 +1,57 @@
+---
+title: "TidyTuesday - Week 5"
+output: html_notebook
+---
+
+# Week 5 of TidyTuesday.   
+
+```{r}
+library(tidyverse)
+
+df <- read_csv("week_5/us-census-demographic-data/acs2015_county_data.csv")
+head(df)
+```
+
+## Descriptive analysis
+
+### 1. What is the mean income for each state?
+
+```{r}
+names(df)
+
+df %>% 
+  select(State, Income) %>% 
+  group_by(State) %>% 
+  summarise(Av_income = mean(Income))
+```
+
+Plot this out
+
+```{r}
+df %>% 
+  select(State, Income) %>% 
+  group_by(State) %>% 
+  summarise(Median_income = mean(Income)) %>% 
+  arrange(Median_income) %>% 
+  mutate(State = forcats::as_factor(State)) %>% 
+  ggplot(aes(State, Median_income)) +
+  geom_col() +
+  coord_flip()
+```
+
+### Look at Pennsylvania
+
+Get the median incomes for each state in PA
+
+```{r, fig.height=4}
+df %>% 
+  filter(State == "Pennsylvania") %>% 
+  select(County, Income) %>% 
+  arrange(Income) %>% 
+  mutate(County = forcats::as_factor(County)) %>% 
+  ggplot(aes(County, Income)) +
+  geom_col() +
+  coord_flip()
+  
+```
+
