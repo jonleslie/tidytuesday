@@ -1,0 +1,60 @@
+---
+title: "2019-01-08_TVs-Golden-Age"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+library(tidyverse)
+library(here)
+ratings_raw <- read_csv(here("data/2019/2019-01-08/IMDb_Economist_tv_ratings.csv"))
+ratings_raw
+```
+
+# Exploration
+
+Let's see what the genres look like. 
+```{r}
+ratings_raw %>% 
+  filter(str_detect(genres, "Drama")) %>% 
+  count()
+```
+
+Okay, so every row contains the word "Drama".
+
+How many unique genre entries are there?
+```{r}
+unique(ratings_raw$genres)
+```
+
+
+## What the heck is "share"?
+
+```{r}
+hist(ratings_raw$share)
+ratings_raw %>% 
+  ggplot(aes(share)) +
+  geom_freqpoly()
+
+```
+
+
+Let's try a fun plot to see ratings over time.
+
+```{r}
+ratings_raw  %>%  
+  ggplot(aes(date, av_rating)) +
+  geom_point()
+```
+
+What if I want to see a line for each show, connecting the seasons, on the above?
+
+```{r}
+ratings_raw %>% 
+  ggplot(aes(x = date, y = av_rating)) +
+  geom_line(aes(group = title), alpha = 0.2) +
+  geom_smooth(method = "lm")
+```
+
+
