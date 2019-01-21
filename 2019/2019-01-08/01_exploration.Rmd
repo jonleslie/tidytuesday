@@ -25,11 +25,24 @@ Okay, so every row contains the word "Drama".
 
 How many unique genre entries are there?
 ```{r}
-unique(ratings_raw$genres)
+length(unique(ratings_raw$genres))
 ```
+
+97 - a lot.
 
 
 ## What the heck is "share"?
+
+According to the #tidytuesday folks, it's "share of IMDb ratings for shows in that year". Let's see if that makes sense.
+
+```{r}
+ratings_raw %>% 
+  mutate(year = lubridate::year(date)) %>% 
+  group_by(year) %>% 
+  summarise(share_sum = sum(share))
+```
+
+Okay, this makes sense then. 
 
 ```{r}
 hist(ratings_raw$share)
@@ -39,6 +52,16 @@ ratings_raw %>%
 
 ```
 
+What is the relationship between share and ratings?
+```{r}
+ratings_raw %>% 
+  ggplot(aes(x = av_rating, y = share)) +
+  geom_point(alpha = 0.2)
+```
+
+
+
+## Ratings
 
 Let's try a fun plot to see ratings over time.
 
@@ -57,4 +80,29 @@ ratings_raw %>%
   geom_smooth(method = "lm")
 ```
 
+
+# Spread out the genres to binary variables
+The genre variable contains many different combinations of words. Try to parse this out to make each genre its own variable (boolean).
+
+```{r}
+# test <- ratings_raw$genres[1]
+# unlist(str_split(test, ","))
+genre_vector <- character()
+for (i in 1:nrow(ratings_raw)) {
+  x <- unlist(str_split(ratings_raw$genres[i], ","))
+  for(j in 1:length(x)) {
+    if(x[j] %in% genre_vector) {
+      next
+    } else {
+      genre_vector <- c(genre_vector, x[j])
+    }
+  }
+}
+
+ratings <- ratings_raw
+ratings <- tibble(matrix(data = NA, 
+                         nrow = nrow(ratings), 
+                         ncol = length(genre_vector))
+)
+```
 
