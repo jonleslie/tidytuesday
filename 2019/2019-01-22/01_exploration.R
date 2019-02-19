@@ -2,6 +2,7 @@ library(tidyverse)
 library(here)
 library(lubridate)
 
+here::here()
 pris_sum_raw <- read_csv(here::here("data", "2019", "2019-01-22", "prison_summary.csv")) %>% 
   mutate(urbanicity = factor(urbanicity),
          pop_category = factor(pop_category))

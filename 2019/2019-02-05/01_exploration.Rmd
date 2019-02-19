@@ -1,0 +1,81 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Set things up
+
+```{r}
+library(tidyverse)
+library(here)
+library(lubridate)
+
+```
+
+## Import data
+
+### Mortgage data
+
+```{r}
+mortgage_raw <- read_csv(here::here("data", "2019", "2019-02-05", "mortgage.csv"))
+View(mortgage_raw)
+
+range(mortgage_raw$date)
+length(unique(mortgage_raw$date))
+mortgage_raw
+
+glimpse(mortgage_raw)
+
+```
+
+### HPI data
+```{r}
+hpi_raw <- read_csv(here::here("data", "2019", "2019-02-05", "state_hpi.csv"))
+View(hpi_raw)
+glimpse(hpi_raw)
+
+```
+
+Let's explore the HPI data a bit
+
+```{r}
+hpi_raw %>% 
+  mutate(date = ymd(str_c(year, month, sep = "-"), truncated = 1)) %>% 
+  group_by(date) %>% 
+  summarise(us_avg = mean(us_avg)) %>% 
+  ggplot(aes(x = date, y = us_avg)) +
+  geom_line() +
+  ggtitle("Changes in US Average HPI")
+
+```
+
+```{r}
+hpi <- hpi_raw %>% 
+  mutate(date = ymd(str_c(year, month, sep = "-"), truncated = 1)) %>% 
+  select(date, state, price_index, us_avg)
+hpi
+
+hpi %>% 
+  group_by(date) %>% 
+  ggplot(aes(x = date, y = price_index, col = state)) +
+  geom_line()
+
+```
+
+```{r}
+hpi_raw %>% 
+  filter(year == "2001") %>% 
+  group_by(year, month)
+
+hpi %>% 
+  group_by(date) %>% 
+  summarise(no_uniques = length(unique(price_index))) %>% 
+  filter(no_uniques < 10)
+  
+```
+
+```{r}
+hpi %>% 
+  filter(date == "2000-12-01")
+```
+
