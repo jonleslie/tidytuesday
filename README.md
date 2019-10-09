@@ -78,7 +78,11 @@ Want to submit a useful code-chunk? Please submit as a [Pull Request](https://gi
 | 34 | `2019-08-20` | [Nuclear Explosions](data/2019/2019-08-20) | [SIPRI](https://github.com/data-is-plural/nuclear-explosions/blob/master/documents/sipri-report-original.pdf) | [Our World in Data](https://ourworldindata.org/nuclear-weapons) |
 | 35 | `2019-08-27` | [Simpsons Guest Stars](data/2019/2019-08-27) | [Wikipedia](https://github.com/data-is-plural/nuclear-explosions/blob/master/documents/sipri-report-original.pdf) | [Wikipedia](https://en.wikipedia.org/wiki/List_of_The_Simpsons_guest_stars) |
 | 36 | `2019-09-03` | [Moore's Law](data/2019/2019-09-03) | [Wikipedia](https://en.wikipedia.org/wiki/Transistor_count) | [Wikipedia](https://ourworldindata.org/technological-progress) |
-
+| 37 | `2019-09-10` | [Amusement Park Injuries](data/2019/2019-09-10) | [Data.world](https://data.world/amillerbernd/texas-amusement-park-accidents/workspace/file?filename=Amusement-Park-Injuries-xlsxCleaned.xls) & [Saferparks](https://saferparksdata.org/) | [Saferparks](https://saferparksdata.org/) |
+| 38 | `2019-09-17` | [National Park Visits](data/2019/2019-09-17) | [Data.world](https://data.world/inform8n/us-national-parks-visitation-1904-2016-with-boundaries) | [`fivethirtyeight` article](https://fivethirtyeight.com/features/the-national-parks-have-never-been-more-popular/) |
+| 39 | `2019-09-24` | [School Diversity](data/2019/2019-09-24) | [NCES](https://nces.ed.gov/ccd/pubschuniv.asp) | [`Washington Post` article](https://www.washingtonpost.com/graphics/2019/local/school-diversity-data/) |
+| 40 | `2019-10-01` | [All the Pizza](data/2019/2019-10-01) | [Jared Lander & Ludmila Janda](https://twitter.com/jaredlander/status/1178122846419193858?s=20), [Tyler Richards](https://github.com/tylerjrichards/Barstool_Pizza), [DataFiniti](https://www.kaggle.com/datafiniti/pizza-restaurants-and-the-pizza-they-sell) | [Tyler Richards on TWD](https://towardsdatascience.com/adventures-in-barstools-pizza-data-9b8ae6bb6cd1) |
+| 41 | `2019-10-08` | [Powerlifting](data/2019/2019-10-08) | [OpenPowerlifting.org](https://www.openpowerlifting.org/data) | [Elias Oziolor](https://oziolor.wordpress.com/2018/05/19/part-i-getting-old-you-can-still-lift/) |
 
 ***  
 
