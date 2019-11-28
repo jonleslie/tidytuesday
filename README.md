@@ -83,6 +83,13 @@ Want to submit a useful code-chunk? Please submit as a [Pull Request](https://gi
 | 39 | `2019-09-24` | [School Diversity](data/2019/2019-09-24) | [NCES](https://nces.ed.gov/ccd/pubschuniv.asp) | [`Washington Post` article](https://www.washingtonpost.com/graphics/2019/local/school-diversity-data/) |
 | 40 | `2019-10-01` | [All the Pizza](data/2019/2019-10-01) | [Jared Lander & Ludmila Janda](https://twitter.com/jaredlander/status/1178122846419193858?s=20), [Tyler Richards](https://github.com/tylerjrichards/Barstool_Pizza), [DataFiniti](https://www.kaggle.com/datafiniti/pizza-restaurants-and-the-pizza-they-sell) | [Tyler Richards on TWD](https://towardsdatascience.com/adventures-in-barstools-pizza-data-9b8ae6bb6cd1) |
 | 41 | `2019-10-08` | [Powerlifting](data/2019/2019-10-08) | [OpenPowerlifting.org](https://www.openpowerlifting.org/data) | [Elias Oziolor](https://oziolor.wordpress.com/2018/05/19/part-i-getting-old-you-can-still-lift/) |
+| 42 | `2019-10-15` | [Car Fuel Economy](data/2019/2019-10-15) | [EPA](https://www.fueleconomy.gov/feg/download.shtml) | [Ellis Hughes](https://thebioengineer.github.io/thebioengineer.github.io/2019/09/10/big-mtcars/) |
+| 43 | `2019-10-22` | [Horror movie ratings](data/2019/2019-10-22) | [IMDB](https://www.kaggle.com/PromptCloudHQ/imdb-horror-movie-dataset) | [Stephen Follows](https://stephenfollows.com/what-the-data-says-about-producing-low-budget-horror-films/) |
+| 44 | `2019-10-29` | [NYC Squirrel Census](data/2019/2019-10-29) | [Squirrel Census](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw) | [CityLab](https://www.citylab.com/life/2019/06/squirrel-census-results-population-central-park-nyc/592162/) |
+| 45 | `2019-11-05` | [Bike & Walk Commutes](data/2019/2019-11-05) | [ACS](https://www.census.gov/library/publications/2014/acs/acs-25.html?#) | [ACS](https://www.census.gov/library/publications/2014/acs/acs-25.html?#) |
+| 46 | `2019-11-12` | [CRAN Code](data/2019/2019-11-12) | [CRAN](https://cran.r-project.org/src/contrib/) | [Phillip Massicotte](https://www.pmassicotte.com/post/analyzing-the-programming-languages-used-in-r-packages/) |
+| 47 | `2019-11-19` | [NZ Bird of the Year](data/2019/2019-11-19) | [New Zealand Forest and Bird Org](https://www.forestandbird.org.nz/) | [Dragonfly Data Science](https://www.dragonfly.co.nz/news/2019-11-12-boty.html) & [Nathan Moore](https://twitter.com/nmoorenz) |
+| 48 | `2019-11-26` | [Student Loan Debt](data/2019/2019-11-26) | [Department of Education](https://studentaid.ed.gov/sa/about/data-center/student/default) | [Dignity and Debt](https://www.dignityanddebt.org/projects/student-debt-racial-disparities/) |
 
 ***  
 
