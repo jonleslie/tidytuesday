@@ -1,0 +1,78 @@
+---
+title: "Nuclear Explorsions - 01"
+output: html_notebook
+---
+
+```{r, message=FALSE}
+library(tidyverse)
+library(janitor)
+library(lubridate)
+library(here)
+
+df_raw <- read_csv(here("data/2019/2019-08-20/nuclear_explosions.csv"))
+
+glimpse(df_raw)
+
+```
+
+# Preprocessing and data clean
+The `date_long` variable hasn't been parsed correctly. Let's fix that.
+```{r}
+df <- df_raw %>% 
+  mutate(date_long = lubridate::as_date(as.character(df_raw$date_long)),
+         country = as_factor(country),
+         region = as_factor(region),
+         source = as_factor(source),
+         purpose = as_factor(purpose),
+         type = as_factor(type))
+
+glimpse(df)
+```
+
+
+# Have a first look around
+
+What are some of the "others" in the factor categories, such as `type`, `purpose`, `source` and `region`? Are there tons of other entries or just a lot of a few?
+
+```{r}
+df %>% 
+  group_by(purpose) %>% 
+  count() %>% 
+  arrange(n)
+```
+
+For `purpose` there are several possible variables that can be combined, so these should be spread out accross columns of dummy variables.
+
+```{r}
+df %>% 
+  group_by(source) %>% 
+  count() %>% 
+  arrange(n)
+```
+
+```{r}
+df %>% 
+  group_by(region) %>% 
+  count() %>% 
+  arrange(n)
+```
+
+
+### What is the relationship between `magnitude_body` and `magnitude_surface`?
+
+```{r}
+df %>% 
+  ggplot(aes(x = magnitude_body, y = magnitude_surface)) +
+  geom_point()
+```
+
+### How has the yield changed over time (is this "power")?
+
+```{r}
+df %>% 
+  select(date_long, yield_lower, yield_upper) %>% 
+  gather(key = "type", value = "yield", -date_long) %>%
+  ggplot(aes(x = date_long, y = log(yield), colour = type)) +
+  geom_point(size = 0.1)
+```
+
